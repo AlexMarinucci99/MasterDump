@@ -10,14 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cognome = $_POST['cognome'] ?? '';
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
-    $tipo_utente = $_POST['tipo_utente'] ?? '';
+    $tipo_utente = $_POST['tipo_utente'] ?? 'ordinante'; // Default a ordinante
 
-    if (empty($nome) || empty($cognome) || empty($email) || empty($password) || empty($tipo_utente)) {
+    if (empty($nome) || empty($cognome) || empty($email) || empty($password)) {
         $error_message = "Tutti i campi sono obbligatori.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error_message = "Formato email non valido.";
-    } elseif (!in_array($tipo_utente, ['ordinante', 'tecnico'])) { // Rimosso 'admin' come da modifiche precedenti
-        $error_message = "Tipo utente non valido.";
     } elseif (strlen($password) < 8) {
         $error_message = "La password deve essere lunga almeno 8 caratteri.";
     } elseif (!preg_match('/[A-Z]/', $password)) {
@@ -101,13 +99,7 @@ $conn->close();
             <?php if (isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin') : ?>
                 <input type="hidden" name="tipo_utente" value="tecnico">
             <?php else : ?>
-            <div>
-                <label for="tipo_utente">Tipo Utente:</label>
-                <select id="tipo_utente" name="tipo_utente" required>
-                    <?php // L'opzione "Seleziona tipo" non è più necessaria se c'è sempre un default e per admin il campo è nascosto ?>
-                    <option value="ordinante" selected>Ordinante</option>
-                </select>
-            </div>
+                <input type="hidden" name="tipo_utente" value="ordinante">
             <?php endif; ?>
             <div>
                 <button type="submit">Registrati</button>
