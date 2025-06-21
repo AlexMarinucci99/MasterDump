@@ -1,8 +1,6 @@
 # MasterDump - Market
 
-Sistema di gestione richieste per un marketplace interno aziendale. Il sistema permette la gestione di richieste di prodotti con workflow di approvazione, assegnazione tecnici e monitoraggio.
-
-
+Benvenuto nel progetto **MasterDump - Market**, un database progettato per supportare un sistema di acquisti online guidato e controllato, ispirato ai classici eCommerce, ma pensato per l’utilizzo in contesti pubblici o istituzionali.
 
 ## 📋 Caratteristiche Principali
 
@@ -108,7 +106,7 @@ $dbname = "market";
 
   
   
-## 👥 Nota sul file hash.php
+## ⚠️ Nota sul file hash.php
 
 Il file `utils/hash.php` serve **esclusivamente** per registrare utenti ADMIN nel database:
 
