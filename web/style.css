@@ -1,0 +1,256 @@
+html, body {
+    height: 100%; /* Necessario per sticky footer */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Assicura che il body occupi almeno tutta l'altezza */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    background-color: #0d1117; /* GitHub Dark background */
+    color: #c9d1d9; /* GitHub Dark text */
+    box-sizing: border-box;
+    padding: 0 20px; /* Padding laterale per il body, rimosso padding globale */
+}
+
+header.main-header-outside {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    color: #58a6ff; /* Colore per il titolo principale */
+}
+
+header.main-header-outside h1 {
+    margin: 0;
+    font-size: 2.5em;
+    border-bottom: none; /* Rimuove bordo se presente da h1 generico */
+}
+
+.container {
+    width: 75%;
+    max-width: 800px; /* Larghezza massima del container, modificabile */
+    padding: 25px;
+    background-color: #161b22; /* Sfondo container leggermente più scuro del body */
+    border: 1px solid #30363d; /* Bordo sottile per il container */
+    border-radius: 8px; /* Angoli arrotondati */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombra per dare profondità */
+    text-align: left; /* Allineamento testo di default, può essere sovrascritto */
+    margin: 20px auto; /* Centra il container e aggiunge margini verticali */
+    box-sizing: border-box; /* Assicura che padding e border non aumentino la larghezza totale */
+    flex: 1 0 auto; /* Fa in modo che il container si espanda per sticky footer */
+}
+
+/* Per centrare specifici h2 */
+.login-container h2,
+.register-container h2 {
+    text-align: center;
+}
+
+/* Stili base per elementi comuni, per mantenere un aspetto coerente */
+h1, h2, h3, h4, h5, h6 {
+    color: #c9d1d9;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: #58a6ff; /* GitHub Dark blue accent */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form input[type="date"],
+form textarea,
+form select {
+    width: 100%;
+    padding: .375rem .75rem;
+    margin-bottom: 1rem;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    color: #c9d1d9;
+    box-sizing: border-box;
+}
+
+form input[type="submit"],
+button {
+    background-color: #238636; /* GitHub Dark green button */
+    color: #ffffff;
+    padding: .5rem 1rem;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+}
+
+form input[type="submit"]:hover,
+button:hover {
+    background-color: #2ea043;
+}
+
+.align-right-link {
+    text-align: right;
+}
+
+/* Stili per i messaggi di errore e successo */
+.error-message, .error {
+    color: #f85149; /* GitHub Dark error text */
+    background-color: rgba(248, 81, 73, 0.1);
+    border: 1px solid rgba(248, 81, 73, 0.3);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.success-message, .success {
+    color: #3fb950; /* GitHub Dark success text */
+    background-color: rgba(63, 185, 80, 0.1);
+    border: 1px solid rgba(63, 185, 80, 0.3);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Aumenta la dimensione del font per il menu operazioni */
+.container ul li {
+    font-size: 20px;   /* → circa 20px; regola a piacere */
+    margin-bottom: 5px;
+}
+
+.container ul li a {
+    font-size: inherit;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #0d1117; /* Stesso sfondo del body */
+    color: #8b949e; /* Testo secondario GitHub */
+    border-top: 1px solid #30363d; /* Bordo superiore per separare */
+    flex-shrink: 0; /* Impedisce al footer di restringersi */
+    box-sizing: border-box;
+    margin-top: auto; /* Spinge il footer in basso */
+}
+
+.operation-header h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    border-radius: 10px;
+}
+
+.description-card, .result-card, .error-card, .warning-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.result-card.success {
+    border-left: 5px solid #00b894;
+}
+
+.error-card {
+    border-left: 5px solid #e74c3c;
+}
+
+.warning-card {
+    border-left: 5px solid #f39c12;
+}
+
+.note-box, .requirements-box {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    border-left: 3px solid #74b9ff;
+}
+
+.metric-box {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.metric-label {
+    font-size: 1.1rem;
+    color: #636e72;
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00b894;
+    font-family: 'Courier New', monospace;
+}
+
+.metric-unit {
+    font-size: 0.9rem;
+    color: #636e72;
+    margin-top: 0.5rem;
+}
+
+.result-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.result-details li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.result-note {
+    font-size: 0.9rem;
+    color: #636e72;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.action-buttons {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #74b9ff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0984e3;
+    transform: translateY(-2px);
+}
