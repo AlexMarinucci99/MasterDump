@@ -50,7 +50,10 @@ net start MySQL80
 
 ```sql
 source database/market_schema.sql
+source database/data.sql
 ```
+
+> **Nota**: Il file `data.sql` è **opzionale** e serve per facilitare l'utilizzo dell'applicativo popolando il database con dati di test (utenti, categorie, caratteristiche). Può essere omesso se si preferisce iniziare con un database vuoto.
 
 5.  **Verificare la creazione** delle tabelle e dei dati di test
 
